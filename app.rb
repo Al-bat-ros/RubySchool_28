@@ -12,3 +12,7 @@ get '/new' do
   erb :new
 end
 
+post '/new' do
+  "Hello World"
+end
+
