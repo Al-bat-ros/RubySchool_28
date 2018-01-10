@@ -11,7 +11,7 @@ end
 
 # "before" вызывается каждый раз при перезагрузке любой страницы
 before do
-  
+
     # инециализация БД
      init_db
 end
@@ -50,6 +50,12 @@ post '/new' do
   #получаем переменную из post-запроса
   content = params[:cont]
 
-  erb "You typed #{content}"
+# прверка ввода текста в форму
+    if content.length <= 0
+      @error = 'Type text'
+      return erb :new
+    end
+
+  erb "You typed: #{content}"
 end
 
