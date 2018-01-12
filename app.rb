@@ -34,7 +34,7 @@ end
 
 #обровотчик get-запроса '/'
 get '/' do
-  erb 'Can you handle a <a href="/secure/place">secret</a>?'
+  erb :index
 end
 
 #обровотчик get-запроса '/new'
@@ -55,7 +55,7 @@ post '/new' do
       @error = 'Type text'
       return erb :new
     end
-  #добовление в БД 
+  #сохранение в БД контнента
     @db.execute 'insert into Posts (content,created_date) values (?,datetime())',[content]
 
   erb "You typed: #{content}"
