@@ -67,3 +67,10 @@ post '/new' do
   
 end
 
+#вывод информации о посте
+get '/details/:post_id' do
+
+   id = params[:post_id]
+
+   erb "Displaying information for post with id #{id}"
+end
