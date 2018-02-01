@@ -1,8 +1,21 @@
-<h2>Add new post</h2>
+
 <p>
-   <form action="/new" method="POST" role="form">
-     <textarea name="cont" class="form-control" rows="6" placeholder="Type post text here" style="width: 500px"></textarea>
-     <br/>
-     <button type="submit" class="btn btn-info">Отправить</button>
-   </form>
+	<div class="container">
+        <div class="col-md-5">
+            <div class="form-area">
+               <form action="/new" method="POST" role="form">
+                <br style="clear:both">
+                <h3 style="margin-bottom: 25px; text-align: center;">Add new post</h3>
+                  <div class="form-group">
+                    <input id="name" class="form-control" name="name" placeholder="Name" required="" type="text">
+                 </div>
+                  <div class="form-group">
+                     <textarea name="cont" class="form-control" type="textarea" placeholder="Message" maxlength="140" rows="7"></textarea>
+                 </div>
+                 <button type="submit" class="btn btn-info">Отправить</button>
+	           </form>
+
+	        </div>
+	    </div>
+	 </div>
 </p>
