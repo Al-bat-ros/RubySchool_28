@@ -28,7 +28,8 @@ configure do
       (
          id  INTEGER PRIMARY KEY AUTOINCREMENT,
          created_date  DATE,
-         content TEXT
+         content TEXT,
+         name TEXT
       )'
 
     @db.execute 'CREATE TABLE IF NOT EXISTS Comments 
@@ -59,8 +60,10 @@ end
 #(браузер отправляет данные на сервер)
 post '/new' do
 
-  #получаем переменную из post-запроса
+  #получаем переменную cont из post-запроса
   content = params[:cont]
+  #получаем переменную name из post-запроса
+  name_user = params[:name]
 
 # прверка ввода текста в форму
     if content.length <= 0
@@ -68,7 +71,7 @@ post '/new' do
       return erb :new
     end
   #сохранение в БД контнента
-    @db.execute 'insert into Posts (content,created_date) values (?,datetime())',[content]
+    @db.execute 'insert into Posts (content,created_date,name) values (?,datetime(),?)',[content,name_user]
 
   #перенаправление на главную страницу
   redirect to '/'
