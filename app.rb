@@ -56,7 +56,7 @@ post '/new' do
 
 # прверка ввода текста в форму
     if content.length <= 0
-      @error = 'Type text'
+      @error = 'Type post text'
       return erb :new
     end
   #сохранение в БД контнента
@@ -70,7 +70,20 @@ end
 #вывод информации о посте
 get '/details/:post_id' do
 
-   id = params[:post_id]
+  init_db
 
-   erb "Displaying information for post with id #{id}"
+   # получаем переменную из url'a
+   post_id = params[:post_id]
+
+   # получаем список постов
+   # (у нас будет только один пост)
+   results = @db.execute 'select * from Posts where id = ?',[post_id.to_i]
+
+   # записываем этот один пост в переменную @row
+   @row = results[0]
+   
+   # возвращаем представление details.erb
+   erb :details
+
+    #erb "добавили пост № : #{post_id}"
 end
