@@ -70,7 +70,6 @@ end
 #вывод информации о посте
 get '/details/:post_id' do
 
-  init_db
 
    # получаем переменную из url'a
    post_id = params[:post_id]

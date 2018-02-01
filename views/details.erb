@@ -1,12 +1,21 @@
 <h4>Post details:</h4>
+<p>
 
-    <p>
+<h6>Вывод информации о посте</h6>
+    <br>
+    <%= @row['content'] %> 
+    <br />
+    <br />
+    Added at <%= @row['created_date'] %>
 
-    <h6>Вывод информации о посте</h6>
-         <br>
-       <%= @row['content'] %> 
-         <br />
-         <br />
-       Added at <%= @row['created_date'] %>
+</p>
+<br />
+<h4>Comments:</h4>
 
-    </p>
+<p>
+   <form action="/details/<%= @row['id'] %> " method="POST" role="form">
+     <textarea name="cont" class="form-control" rows="6" placeholder="Type comment text here" style="width: 500px"></textarea>
+     <br/>
+     <button type="submit" class="btn btn-info">Add comment</button>
+   </form>
+</p>
