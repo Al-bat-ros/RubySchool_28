@@ -19,6 +19,9 @@
 <% @comments.each do |comment|%>
 
   <p>
+    <%= comment['name']%>
+    <br />
+    <br />
   	<%= comment['content'] %>
   	<br />
   	<br />
@@ -29,9 +32,25 @@
 <% end %>
 
 <p>
+
+  <div class="col-md-5">
+
    <form action="/details/<%= @row['id'] %> " method="POST" role="form">
-     <textarea name="cont" class="form-control" rows="6" placeholder="Type comment text here" required="" style="width: 500px"></textarea>
-     <br/>
+     <br style="clear:both">
+     <h3 style="margin-bottom: 25px; text-align: center;">Add comment for post</h3>
+
+     <div class="form-group">
+         <input id="name" class="form-control" name="name" placeholder="Name" required="" type="text">
+     </div>
+
+     <div class="form-group">
+         <textarea name="cont" class="form-control" rows="7" placeholder="Message" required="" ></textarea>
+     </div>
+
+
      <button type="submit" class="btn btn-info">Add comment</button>
    </form>
+
+  </div>
+
 </p>
